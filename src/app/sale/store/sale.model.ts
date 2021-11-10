@@ -1,6 +1,6 @@
 export interface Sale {
   id: number;
   name: string;
-  price: number;
+  price?: number;
   owner: string;
 }

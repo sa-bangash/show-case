@@ -6,6 +6,7 @@ import { ItemListContainerComponent } from './containers/item-list-container/ite
 import { ItemComponent } from './components/item/item.component';
 import { CreateItemFormComponent } from './components/create-item-form/create-item-form.component';
 import { ShareModule } from '../share/share.module';
+import { SaleFilterComponent } from './components/sale-filter/sale-filter.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ShareModule } from '../share/share.module';
     ItemListContainerComponent,
     ItemComponent,
     CreateItemFormComponent,
+    SaleFilterComponent,
   ],
   imports: [CommonModule, SaleRoutingModule, ShareModule],
 })

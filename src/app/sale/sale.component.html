@@ -1,5 +1,13 @@
 <div>
-  <button routerLink=".">All Collections</button>
-  <button routerLink="./card">Create</button>
+  <div class="tab">
+    <button
+      class="active"
+      routerLink="./collection"
+      [routerLinkActive]="'active'"
+    >
+      All Collections
+    </button>
+    <button routerLink="./card" [routerLinkActive]="'active'">Create</button>
+  </div>
   <router-outlet></router-outlet>
 </div>

@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'collection',
+    path: '',
     loadChildren: () => import('./sale/sale.module').then((m) => m.SaleModule),
   },
   {
     path: '',
-    redirectTo: 'collection',
+    redirectTo: '',
     pathMatch: 'full',
   },
 ];

@@ -4,3 +4,24 @@
 * {
   box-sizing: border-box;
 }
+.spliter-right {
+  margin-right: 14px;
+  position: relative;
+}
+.spliter-right::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background-color: gray;
+  right: -7px;
+  bottom: 3px;
+}
+
+.tab-item {
+  cursor: pointer;
+}
+
+.active {
+  color: #1669bb;
+}

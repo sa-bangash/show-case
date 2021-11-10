@@ -10,12 +10,17 @@ const routes: Routes = [
     component: SaleComponent,
     children: [
       {
-        path: '',
+        path: 'collection',
         component: ItemListContainerComponent,
       },
       {
         path: 'card',
         component: CreateItemFormComponent,
+      },
+      {
+        path: '',
+        redirectTo: 'collection',
+        pathMatch: 'full',
       },
     ],
   },

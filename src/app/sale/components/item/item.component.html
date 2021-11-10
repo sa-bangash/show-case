@@ -1,14 +1,14 @@
 <app-card class="item-card">
-  <img app-card-image src="../../../../assets/images/image-1.jpg" />
-  <app-card-title>Unique one</app-card-title>
+  <img app-card-image src="./assets/images/image-1.jpg" />
+  <app-card-title>{{ data?.name }}</app-card-title>
   <app-card-content>
     <div class="owner">
       <span>Owner: </span>
-      <span>Jhone</span>
+      <span>{{ data?.owner }}</span>
     </div>
-    <div class="buy">
+    <div class="buy" *ngIf="data.price">
       <span>Buy</span>
-      <span>$150</span>
+      <span>{{ data?.price }}</span>
     </div>
   </app-card-content>
 </app-card>

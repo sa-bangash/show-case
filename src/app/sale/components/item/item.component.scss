@@ -7,12 +7,16 @@
     margin-bottom: 10px;
   }
   .buy {
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     display: inline-block;
     padding: 5px;
     border-radius: 5px;
+    cursor: pointer;
     :nth-child(1) {
       margin-right: 12px;
+    }
+    &:active {
+      background-color: lightgray;
     }
   }
 }
