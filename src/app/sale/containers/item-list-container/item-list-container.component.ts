@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SaleFilter } from '../../sale-filter.enum';
 import { SaleFacadeService } from '../../store/sale-facade.service';
+import { Sale } from '../../store/sale.model';
 
 @Component({
   selector: 'app-item-list-container',
@@ -13,6 +14,10 @@ export class ItemListContainerComponent implements OnInit {
 
   ngOnInit(): void {}
   onFilterChange(filter: SaleFilter) {
-    this.facade.fetchItem(filter);
+    this.facade.setFilter(filter);
+    this.facade.fetchItem();
+  }
+  onBuy(item: Sale) {
+    this.facade.onBuy(item);
   }
 }

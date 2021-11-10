@@ -1,4 +1,8 @@
 <app-sale-filter (onChangeAction)="onFilterChange($event)"></app-sale-filter>
 <div class="content">
-  <app-item *ngFor="let item of itemList$ | async" [data]="item"></app-item>
+  <app-item
+    *ngFor="let item of itemList$ | async"
+    [data]="item"
+    (onBuy)="onBuy($event)"
+  ></app-item>
 </div>

@@ -18,6 +18,31 @@ export class SaleServiceService {
     return this.fetchAll();
   }
 
+  onAddItem(value: Sale): Observable<any> {
+    let item = {
+      ...value,
+      id:
+        (value.price
+          ? SaleServiceService.forSale.length
+          : SaleServiceService.sold.length) + 1,
+    };
+    return new Observable((observer) => {
+      if (item.price && item.price > 0) {
+        SaleServiceService.forSale.push(item);
+      } else {
+        SaleServiceService.sold.push(item);
+      }
+      observer.next();
+    }).pipe(take(1));
+  }
+
+  onBuy({ id }: Sale): Observable<any> {
+    SaleServiceService.forSale = SaleServiceService.forSale.filter(
+      (item) => item.id !== id
+    );
+    return of(null).pipe(take(1));
+  }
+
   private fetchForSale(): Observable<Sale[]> {
     return of(SaleServiceService.forSale).pipe(take(1));
   }
@@ -31,7 +56,7 @@ export class SaleServiceService {
 }
 
 export namespace SaleServiceService {
-  export const forSale = [
+  export let forSale: Sale[] = [
     {
       id: 1,
       name: 'Unique Unicorn',
@@ -52,19 +77,19 @@ export namespace SaleServiceService {
     },
   ];
 
-  export const sold = [
+  export let sold: Sale[] = [
     {
-      id: 1,
+      id: 100,
       name: 'Unique Unicorn',
       owner: 'Jacob',
     },
     {
-      id: 2,
+      id: 101,
       name: 'Unique Unicorn',
       owner: 'Jacob',
     },
     {
-      id: 3,
+      id: 102,
       name: 'Unique Unicorn',
       owner: 'John',
     },

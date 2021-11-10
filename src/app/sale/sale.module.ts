@@ -7,6 +7,8 @@ import { ItemComponent } from './components/item/item.component';
 import { CreateItemFormComponent } from './components/create-item-form/create-item-form.component';
 import { ShareModule } from '../share/share.module';
 import { SaleFilterComponent } from './components/sale-filter/sale-filter.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateCollectableContainerComponent } from './containers/create-collectable-container/create-collectable-container.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,14 @@ import { SaleFilterComponent } from './components/sale-filter/sale-filter.compon
     ItemComponent,
     CreateItemFormComponent,
     SaleFilterComponent,
+    CreateCollectableContainerComponent,
   ],
-  imports: [CommonModule, SaleRoutingModule, ShareModule],
+  imports: [
+    CommonModule,
+    SaleRoutingModule,
+    ShareModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
 })
 export class SaleModule {}

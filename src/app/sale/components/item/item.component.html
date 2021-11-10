@@ -6,7 +6,7 @@
       <span>Owner: </span>
       <span>{{ data?.owner }}</span>
     </div>
-    <div class="buy" *ngIf="data.price">
+    <div class="buy" *ngIf="data.price" (click)="onBuyClick()">
       <span>Buy</span>
       <span>{{ data?.price }}</span>
     </div>
