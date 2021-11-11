@@ -17,6 +17,7 @@
       <input type="text" id="address" formControlName="address" />
     </div>
     <div class="button-wrapper">
+      <button type="button" (click)="cancel()">Cancel</button>
       <button type="submit">{{ data?.id ? "Update" : "Create" }}</button>
     </div>
   </form>

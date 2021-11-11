@@ -10,6 +10,7 @@ import { Customer } from '../../store/customer.model';
 export class CreateItemFormComponent implements OnInit {
   @Input() data: Customer;
   @Output() onSubmit = new EventEmitter<Customer>();
+  @Output() onCancel = new EventEmitter();
   form: FormGroup;
   constructor(private fb: FormBuilder) {}
 
@@ -34,5 +35,9 @@ export class CreateItemFormComponent implements OnInit {
       };
     }
     this.onSubmit.next(data);
+  }
+
+  cancel() {
+    this.onCancel.next();
   }
 }

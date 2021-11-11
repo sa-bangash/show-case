@@ -5,6 +5,7 @@
       class="form"
       [data]="data$ | async"
       (onSubmit)="onSubmit($event)"
+      (onCancel)="onCancel()"
     ></app-create-item-form>
   </app-card-content>
 </app-card>

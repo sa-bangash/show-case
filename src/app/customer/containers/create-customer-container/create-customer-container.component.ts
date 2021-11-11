@@ -31,6 +31,10 @@ export class CreateCustomerContainerComponent implements OnInit, OnDestroy {
     }
   }
 
+  onCancel() {
+    this.facade.navigateToList();
+  }
+
   ngOnDestroy(): void {
     this.facade.clearCustomerSelect();
   }
