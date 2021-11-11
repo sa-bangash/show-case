@@ -4,7 +4,7 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { ItemListContainerComponent } from './containers/item-list-container/item-list-container.component';
 import { ItemComponent } from './components/item/item.component';
 import { CreateItemFormComponent } from './components/create-item-form/create-item-form.component';
-import { ShareModule } from '../share/share.module';
+import { CardModule } from '../share/components/card/card.module';
 import { CustomerFilterComponent } from './components/customer-filter/customer-filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCustomerContainerComponent } from './containers/create-customer-container/create-customer-container.component';
@@ -25,7 +25,7 @@ import { CustomerState } from './store/customer.store';
   imports: [
     CommonModule,
     CustomerRoutingModule,
-    ShareModule,
+    CardModule,
     ReactiveFormsModule,
     FormsModule,
     FontAwesomeModule,
