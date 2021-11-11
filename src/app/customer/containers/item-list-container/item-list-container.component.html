@@ -16,6 +16,7 @@
       >
     </app-card>
     <app-item
+      (click)="gotoEditCustomer(item.id)"
       *ngFor="let item of itemList$ | async"
       [data]="item"
       (onBuy)="onBuy($event)"

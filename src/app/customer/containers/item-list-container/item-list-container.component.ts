@@ -21,4 +21,7 @@ export class ItemListContainerComponent implements OnInit {
   onAddCustomer() {
     this.facade.navigateToCreateForm();
   }
+  gotoEditCustomer(id) {
+    this.facade.navigateToEditForm(id);
+  }
 }

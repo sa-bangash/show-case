@@ -26,6 +26,23 @@ export class CustomerServiceService {
       observer.next();
     }).pipe(take(1));
   }
+
+  fetchCustomerByid(id: number): Observable<Customer> {
+    return of(CustomerServiceService.customers.find((i) => i.id === +id)).pipe(
+      take(1)
+    );
+  }
+
+  updateCustomer(customer: Customer): Observable<Customer> {
+    const customers = CustomerServiceService.customers.map((cust) => {
+      if (cust.id === customer.id) {
+        return customer;
+      }
+      return cust;
+    });
+    CustomerServiceService.customers = customers;
+    return of(customer).pipe(take(1));
+  }
 }
 
 export namespace CustomerServiceService {

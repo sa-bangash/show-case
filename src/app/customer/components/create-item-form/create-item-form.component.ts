@@ -16,16 +16,23 @@ export class CreateItemFormComponent implements OnInit {
   formInit(data?) {
     this.form = this.fb.group({
       name: data?.name || '',
-      companyName: data?.owner || '',
-      email: data?.price || '',
+      companyName: data?.companyName || '',
+      email: data?.email || '',
       address: data?.address,
     });
   }
   ngOnInit(): void {
-    this.formInit();
+    this.formInit(this.data);
   }
 
   submit() {
-    this.onSubmit.next(this.form.value);
+    let data = this.form.value;
+    if (this.data) {
+      data = {
+        ...data,
+        id: this.data.id,
+      };
+    }
+    this.onSubmit.next(data);
   }
 }

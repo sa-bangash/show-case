@@ -3,6 +3,7 @@
   <app-card-content>
     <app-create-item-form
       class="form"
+      [data]="data$ | async"
       (onSubmit)="onSubmit($event)"
     ></app-create-item-form>
   </app-card-content>

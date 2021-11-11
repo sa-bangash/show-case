@@ -19,6 +19,10 @@ const routes: Routes = [
         component: CreateCustomerContainerComponent,
       },
       {
+        path: 'edit/:id',
+        component: CreateCustomerContainerComponent,
+      },
+      {
         path: '',
         redirectTo: 'customers',
         pathMatch: 'full',
