@@ -1,14 +1,15 @@
 :host {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  min-width: 100%;
   .form-input {
     min-width: 300px;
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
     margin-bottom: 10px;
   }
 }

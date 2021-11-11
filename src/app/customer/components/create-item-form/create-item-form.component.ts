@@ -18,7 +18,7 @@ export class CreateItemFormComponent implements OnInit {
       name: data?.name || '',
       companyName: data?.owner || '',
       email: data?.price || '',
-      address: data.address,
+      address: data?.address,
     });
   }
   ngOnInit(): void {

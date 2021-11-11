@@ -1,4 +1,9 @@
-<app-create-item-form
-  [data]=""
-  (onSubmit)="onSubmit($event)"
-></app-create-item-form>
+<app-card class="create-customer-card">
+  <app-card-title> Create customer </app-card-title>
+  <app-card-content>
+    <app-create-item-form
+      class="form"
+      (onSubmit)="onSubmit($event)"
+    ></app-create-item-form>
+  </app-card-content>
+</app-card>
