@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SaleComponent } from './sale.component';
+import { CustomerComponent } from './customer.component';
 import { ItemListContainerComponent } from './containers/item-list-container/item-list-container.component';
 import { CreateItemFormComponent } from './components/create-item-form/create-item-form.component';
-import { CreateCollectableContainerComponent } from './containers/create-collectable-container/create-collectable-container.component';
+import { CreateCustomerContainerComponent } from './containers/create-customer-container/create-customer-container.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SaleComponent,
+    component: CustomerComponent,
     children: [
       {
-        path: 'collection',
+        path: 'customers',
         component: ItemListContainerComponent,
       },
       {
-        path: 'card',
-        component: CreateCollectableContainerComponent,
+        path: 'create',
+        component: CreateCustomerContainerComponent,
       },
       {
         path: '',
-        redirectTo: 'collection',
+        redirectTo: 'customers',
         pathMatch: 'full',
       },
     ],
@@ -31,4 +31,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SaleRoutingModule {}
+export class CustomerRoutingModule {}

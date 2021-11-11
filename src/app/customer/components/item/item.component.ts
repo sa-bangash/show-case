@@ -4,7 +4,7 @@ import {
   IconDefinition,
   faComments,
 } from '@fortawesome/free-solid-svg-icons';
-import { Sale } from '../../store/sale.model';
+import { Customer } from '../../store/customer.model';
 const COLOR = ['#2D4050', '#A94763', '#B8B75B'];
 const ICONS = [faComments, faUniversity];
 @Component({
@@ -13,8 +13,8 @@ const ICONS = [faComments, faUniversity];
   styleUrls: ['./item.component.scss'],
 })
 export class ItemComponent implements OnInit {
-  @Input() data: Sale;
-  @Output() onBuy = new EventEmitter<Sale>();
+  @Input() data: Customer;
+
   color: string;
   selectIcon: IconDefinition;
   constructor() {}
@@ -22,9 +22,5 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
     this.color = COLOR[Math.floor(Math.random() * COLOR.length)];
     this.selectIcon = ICONS[Math.floor(Math.random() * ICONS.length)];
-  }
-
-  onBuyClick() {
-    this.onBuy.next(this.data);
   }
 }

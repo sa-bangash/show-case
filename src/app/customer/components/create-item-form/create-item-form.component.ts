@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Sale } from '../../store/sale.model';
+import { Customer } from '../../store/customer.model';
 
 @Component({
   selector: 'app-create-item-form',
@@ -8,16 +8,17 @@ import { Sale } from '../../store/sale.model';
   styleUrls: ['./create-item-form.component.scss'],
 })
 export class CreateItemFormComponent implements OnInit {
-  @Input() data: Sale;
-  @Output() onSubmit = new EventEmitter<Sale>();
+  @Input() data: Customer;
+  @Output() onSubmit = new EventEmitter<Customer>();
   form: FormGroup;
   constructor(private fb: FormBuilder) {}
 
   formInit(data?) {
     this.form = this.fb.group({
       name: data?.name || '',
-      owner: data?.owner || '',
-      price: data?.price || '',
+      companyName: data?.owner || '',
+      email: data?.price || '',
+      address: data.address,
     });
   }
   ngOnInit(): void {

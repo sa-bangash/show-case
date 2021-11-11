@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SaleFilter } from '../../sale-filter.enum';
-import { SaleFacadeService } from '../../store/sale-facade.service';
-import { Sale } from '../../store/sale.model';
+import { CustomerFacadeService } from '../../store/customer-facade.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-item-list-container',
@@ -11,15 +9,13 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 export class ItemListContainerComponent implements OnInit {
   itemList$ = this.facade.items$;
   faPlusIcon = faPlus;
-  constructor(private facade: SaleFacadeService) {}
+  constructor(private facade: CustomerFacadeService) {}
 
   ngOnInit(): void {}
-  onFilterChange(filter: SaleFilter) {
+
+  onFilterChange(filter: string) {
     this.facade.setFilter(filter);
     this.facade.fetchItem();
-  }
-  onBuy(item: Sale) {
-    this.facade.onBuy(item);
   }
 
   onAddCustomer() {

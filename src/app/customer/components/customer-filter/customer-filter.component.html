@@ -1,7 +1,7 @@
 <div class="filter tab">
   <input
     type="text"
-    (input)="search$.next($event)"
+    (input)="search$.next($event.target.value)"
     placeholder="search for customer"
   />
 </div>

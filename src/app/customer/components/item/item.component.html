@@ -7,13 +7,13 @@
         [ngStyle]="{ color: color }"
       ></fa-icon>
     </app-card-image>
-    <app-card-title>{{ data?.name }}</app-card-title>
-    <app-card-sub-title>sdfsd</app-card-sub-title>
+    <app-card-title>{{ data?.companyName }}</app-card-title>
+    <app-card-sub-title>{{ data.name }}</app-card-sub-title>
   </app-card-header>
   <app-card-content>
     <div class="content">
-      <div>123 main str, phildelphia</div>
-      <div>jsnow@company.com</div>
+      <div>{{ data.address }}</div>
+      <div>{{ data.email }}</div>
     </div>
   </app-card-content>
 </app-card>

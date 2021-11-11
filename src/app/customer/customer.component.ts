@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-sale',
-  templateUrl: './sale.component.html',
-  styleUrls: ['./sale.component.scss'],
+  selector: 'app-customer',
+  templateUrl: './customer.component.html',
+  styleUrls: ['./customer.component.scss'],
 })
-export class SaleComponent implements OnInit {
+export class CustomerComponent implements OnInit {
   faCoffee = faCoffee;
   constructor() {}
 

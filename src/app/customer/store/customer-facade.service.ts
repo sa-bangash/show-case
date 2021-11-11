@@ -2,25 +2,27 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { SaleFilter } from '../sale-filter.enum';
-import { SaleServiceService } from './sale-service.service';
-import { Sale } from './sale.model';
+import { CustomerServiceService } from './customer-service.service';
+import { Customer } from './customer.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SaleFacadeService {
-  private itemsSource = new BehaviorSubject<Sale[]>([]);
+export class CustomerFacadeService {
+  private itemsSource = new BehaviorSubject<Customer[]>([]);
   public items$ = this.itemsSource.asObservable();
-  private filterSource = new BehaviorSubject<SaleFilter>(null);
+  private filterSource = new BehaviorSubject<string>(null);
   public filter$ = this.filterSource.asObservable();
-  constructor(private service: SaleServiceService, private router: Router) {}
+  constructor(
+    private service: CustomerServiceService,
+    private router: Router
+  ) {}
 
   fetchItem() {
     this.filter$
       .pipe(
         switchMap((filter) => {
-          return this.service.fetchItem(filter);
+          return this.service.fetchCustomers(filter);
         })
       )
       .subscribe((list) => {
@@ -28,26 +30,21 @@ export class SaleFacadeService {
       });
   }
 
-  onAddItem(item: Sale) {
+  onAddItem(item: Customer) {
     this.service.onAddItem(item).subscribe(() => {
       this.navigateToList();
     });
   }
 
-  onBuy(item: Sale) {
-    this.service.onBuy(item).subscribe(() => {
-      this.fetchItem();
-    });
-  }
-  setFilter(filter: SaleFilter) {
+  setFilter(filter: string) {
     this.filterSource.next(filter);
   }
 
   navigateToList() {
-    this.router.navigate(['collection']);
+    this.router.navigate(['customers']);
   }
 
   navigateToCreateForm() {
-    this.router.navigate(['card']);
+    this.router.navigate(['create']);
   }
 }
