@@ -1,10 +1,7 @@
 <div class="filter tab">
-  <span
-    class="tab-item"
-    (click)="active$.next(item.action)"
-    [class.active]="(active$ | async) === item.action"
-    [ngClass]="{ 'spliter-right': !last }"
-    *ngFor="let item of actions; let last = last"
-    >{{ item.title }}</span
-  >
+  <input
+    type="text"
+    (input)="search$.next($event)"
+    placeholder="search for customer"
+  />
 </div>

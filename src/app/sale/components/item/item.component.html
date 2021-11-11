@@ -1,14 +1,19 @@
-<app-card class="item-card">
-  <img app-card-image src="./assets/images/image-1.jpg" />
-  <app-card-title>{{ data?.name }}</app-card-title>
+<app-card class="item-card" [ngStyle]="{ 'border-color': color }">
+  <app-card-header>
+    <app-card-image>
+      <fa-icon
+        [icon]="selectIcon"
+        class="customer-icon"
+        [ngStyle]="{ color: color }"
+      ></fa-icon>
+    </app-card-image>
+    <app-card-title>{{ data?.name }}</app-card-title>
+    <app-card-sub-title>sdfsd</app-card-sub-title>
+  </app-card-header>
   <app-card-content>
-    <div class="owner">
-      <span>Owner: </span>
-      <span>{{ data?.owner }}</span>
-    </div>
-    <div class="buy" *ngIf="data.price" (click)="onBuyClick()">
-      <span>Buy</span>
-      <span>{{ data?.price }}</span>
+    <div class="content">
+      <div>123 main str, phildelphia</div>
+      <div>jsnow@company.com</div>
     </div>
   </app-card-content>
 </app-card>

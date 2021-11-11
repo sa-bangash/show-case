@@ -9,6 +9,7 @@ import { ShareModule } from '../share/share.module';
 import { SaleFilterComponent } from './components/sale-filter/sale-filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCollectableContainerComponent } from './containers/create-collectable-container/create-collectable-container.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CreateCollectableContainerComponent } from './containers/create-collect
     ShareModule,
     ReactiveFormsModule,
     FormsModule,
+    FontAwesomeModule,
   ],
 })
 export class SaleModule {}

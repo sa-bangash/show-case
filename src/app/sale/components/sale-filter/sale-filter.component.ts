@@ -10,27 +10,16 @@ import { SaleFilter } from '../../sale-filter.enum';
   styleUrls: ['./sale-filter.component.scss'],
 })
 export class SaleFilterComponent implements OnInit, OnDestroy {
-  actions: Array<{ action: SaleFilter; title: string }> = [
-    {
-      action: SaleFilter.forSale,
-      title: 'For sale',
-    },
-    {
-      action: SaleFilter.sold,
-      title: 'Sold',
-    },
-  ];
-
   @Output()
-  onChangeAction = new EventEmitter<SaleFilter>();
+  onChangeAction = new EventEmitter<string>();
 
-  active$ = new BehaviorSubject<SaleFilter>(SaleFilter.forSale);
+  search$ = new BehaviorSubject<string>('');
   destroy$ = new Subject();
 
   constructor() {}
 
   ngOnInit(): void {
-    this.active$.pipe(takeUntil(this.destroy$)).subscribe((action) => {
+    this.search$.pipe(takeUntil(this.destroy$)).subscribe((action) => {
       this.onChangeAction.emit(action);
     });
   }

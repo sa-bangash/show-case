@@ -46,4 +46,8 @@ export class SaleFacadeService {
   navigateToList() {
     this.router.navigate(['collection']);
   }
+
+  navigateToCreateForm() {
+    this.router.navigate(['card']);
+  }
 }

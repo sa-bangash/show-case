@@ -9,4 +9,26 @@
     gap: 10px;
     flex-wrap: wrap;
   }
+  .plus-icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: darkblue;
+  }
+  .customer-add-card {
+    width: 350px;
+    border-radius: 5px;
+  }
+  .add-customer-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 5px;
+    cursor: pointer;
+  }
 }
