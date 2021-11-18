@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: row;
   margin-top: 20px;
-  padding: 10px;
+  justify-content: space-between;
 
   .content {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    padding: 20px;
   }
   .cart {
     min-width: 30%;

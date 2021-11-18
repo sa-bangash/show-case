@@ -1,71 +1,63 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { map, switchMap, takeUntil } from 'rxjs/operators';
-import { SaleFilter } from '../sale-filter.enum';
+import { map } from 'rxjs/operators';
 import { SaleServiceService } from './sale-service.service';
-import { Sale } from './sale.model';
+import { Product } from './product.model';
+import { Cart } from './cart.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SaleFacadeService {
-  private itemsSource = new BehaviorSubject<Sale[]>([]);
+  private itemsSource = new BehaviorSubject<Product[]>([]);
   public items$ = this.itemsSource.asObservable();
-  private filterSource = new BehaviorSubject<SaleFilter>(null);
-  public filter$ = this.filterSource.asObservable();
   private destory$ = new Subject();
-  private cartItemsSource = new BehaviorSubject<Sale[]>([]);
+  private cartItemsSource = new BehaviorSubject<Cart[]>([]);
+  public cartItems$ = this.cartItemsSource.asObservable();
 
   public total$ = this.cartItemsSource.pipe(
     map((items) => {
       if (Array.isArray(items)) {
         return items.reduce((acc, item) => {
-          return acc + item.price;
+          return (acc + item.price) * item.quantity;
         }, 0);
       }
       return 0;
     })
   );
-  public cartItems$ = this.cartItemsSource.asObservable();
-  constructor(private service: SaleServiceService, private router: Router) {
-    this.filter$.pipe(takeUntil(this.destory$)).subscribe(() => {
-      this.fetchItem();
-    });
-  }
+  constructor(private service: SaleServiceService, private router: Router) {}
 
   fetchItem() {
-    this.filter$
-      .pipe(
-        switchMap((filter) => {
-          return this.service.fetchItem(filter);
-        })
-      )
-      .subscribe((list) => {
-        this.itemsSource.next(list);
-      });
-  }
-
-  onAddItem(item: Sale) {
-    this.service.onAddItem(item).subscribe(() => {
-      this.navigateToList();
+    this.service.fetchItem().subscribe((list) => {
+      this.itemsSource.next(list);
     });
   }
 
   onBuy() {
     this.navigateToList();
   }
-  setFilter(filter: SaleFilter) {
-    this.filterSource.next(filter);
-  }
 
   navigateToList() {
     this.router.navigate(['collection']);
   }
 
-  addToCart(newItem: Sale) {
-    const prevItem = this.cartItemsSource.value;
-    this.cartItemsSource.next([...prevItem, newItem]);
+  addToCart(newItem: Product) {
+    const items = this.cartItemsSource.value;
+    const found = items.findIndex((i) => i.id === newItem.id);
+    if (found > -1) {
+      const item = items[found];
+      items[found] = {
+        ...item,
+        quantity: item.quantity + 1,
+      };
+    } else {
+      items.push({
+        ...newItem,
+        quantity: 1,
+      });
+    }
+    this.cartItemsSource.next(items);
   }
 
   navigateToCheckout() {

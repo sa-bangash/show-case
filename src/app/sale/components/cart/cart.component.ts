@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Sale } from '../../store/sale.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { Cart } from '../../store/cart.model';
+import { Product } from '../../store/product.model';
 
 @Component({
   selector: 'app-cart',
@@ -8,7 +9,7 @@ import { Sale } from '../../store/sale.model';
 })
 export class CartComponent implements OnInit {
   @Input()
-  items: Sale[] = [];
+  items: Cart[] = [];
 
   @Input()
   total: number;

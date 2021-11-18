@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Sale } from '../../store/sale.model';
+import { Product } from '../../store/product.model';
 
 @Component({
   selector: 'app-item',
@@ -7,8 +7,8 @@ import { Sale } from '../../store/sale.model';
   styleUrls: ['./item.component.scss'],
 })
 export class ItemComponent implements OnInit {
-  @Input() data: Sale;
-  @Output() onBuy = new EventEmitter<Sale>();
+  @Input() data: Product;
+  @Output() onBuy = new EventEmitter<Product>();
   constructor() {}
 
   ngOnInit(): void {}

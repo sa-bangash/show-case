@@ -1,6 +1,6 @@
-export interface Sale {
+export interface Product {
   id: number;
   name: string;
   price?: number;
-  owner: string;
+  imgUrl?: string;
 }

@@ -1,13 +1,9 @@
 <app-card class="item-card">
-  <img app-card-image src="./assets/images/image-1.jpg" />
+  <img app-card-image [src]="data?.imgUrl" />
   <app-card-title>{{ data?.name }}</app-card-title>
   <app-card-content>
-    <div class="owner">
-      <span>Owner: </span>
-      <span>{{ data?.owner }}</span>
-    </div>
     <div class="buy" *ngIf="data.price" (click)="onBuyClick()">
-      <span>Buy</span>
+      <span>Add to cart</span>
       <span>{{ data?.price }}</span>
     </div>
   </app-card-content>
