@@ -16,16 +16,7 @@ export class SaleFacadeService {
   private cartItemsSource = new BehaviorSubject<Cart[]>([]);
   public cartItems$ = this.cartItemsSource.asObservable();
 
-  public total$ = this.cartItemsSource.pipe(
-    map((items) => {
-      if (Array.isArray(items)) {
-        return items.reduce((acc, item) => {
-          return (acc + item.price) * item.quantity;
-        }, 0);
-      }
-      return 0;
-    })
-  );
+  public total$ = this.cartItemsSource.pipe(map(this.total));
   constructor(private service: SaleServiceService, private router: Router) {}
 
   fetchItem() {
@@ -63,8 +54,15 @@ export class SaleFacadeService {
   navigateToCheckout() {
     this.router.navigate(['checkout']);
   }
+
   destory() {
     this.destory$.next();
     this.destory$.complete();
+  }
+
+  private total(items: Cart[]) {
+    return items.reduce((acc, item) => {
+      return (acc + item.price) * item.quantity;
+    }, 0);
   }
 }
