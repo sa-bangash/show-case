@@ -1,0 +1,12 @@
+<div>
+  <h1 class="title">Cart</h1>
+  <app-cart-item
+    *ngFor="let item of items; let i = index"
+    [item]="item"
+    [idx]="i + 1"
+  ></app-cart-item>
+  <div class="total">
+    <div>Total</div>
+    <div>{{ total }}</div>
+  </div>
+</div>

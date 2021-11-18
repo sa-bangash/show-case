@@ -9,6 +9,9 @@ import { ShareModule } from '../share/share.module';
 import { SaleFilterComponent } from './components/sale-filter/sale-filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCollectableContainerComponent } from './containers/create-collectable-container/create-collectable-container.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { CheckoutContainerComponent } from './containers/checkout-container/checkout-container.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { CreateCollectableContainerComponent } from './containers/create-collect
     CreateItemFormComponent,
     SaleFilterComponent,
     CreateCollectableContainerComponent,
+    CartComponent,
+    CartItemComponent,
+    CheckoutContainerComponent,
   ],
   imports: [
     CommonModule,

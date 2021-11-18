@@ -1,8 +1,11 @@
-<app-sale-filter (onChangeAction)="onFilterChange($event)"></app-sale-filter>
 <div class="content">
   <app-item
     *ngFor="let item of itemList$ | async"
     [data]="item"
-    (onBuy)="onBuy($event)"
+    (onBuy)="addToCart($event)"
   ></app-item>
+</div>
+<div class="cart">
+  <app-cart [items]="cartItems$ | async" [total]="total$ | async"></app-cart>
+  <button type="button" (click)="onCheckoutClick()">Check out</button>
 </div>

@@ -1,6 +1,6 @@
 :host {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin-top: 20px;
   padding: 10px;
 
@@ -8,5 +8,9 @@
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+  }
+  .cart {
+    min-width: 30%;
+    max-width: 30%;
   }
 }
