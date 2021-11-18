@@ -21,8 +21,8 @@ export namespace SaleServiceService {
   export let products: Product[] = [
     {
       id: 1,
-      name: 'Coffe',
-      price: 15,
+      name: 'Coffee',
+      price: 150,
       imgUrl: './assets/images/image-2.png',
     },
     {
