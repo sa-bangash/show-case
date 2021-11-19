@@ -2,4 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  .confirm-btn {
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 0;
+    background-color: chocolate;
+    color: white;
+    margin-top: 30px;
+    width: 100%;
+  }
 }

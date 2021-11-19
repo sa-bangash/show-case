@@ -1,5 +1,16 @@
+<div class="item heading" *ngIf="idx === 1">
+  <div class="name">Name</div>
+  <div>Qty</div>
+  <div>Tax</div>
+  <div>Discount</div>
+  <div class="price">Unit Price</div>
+  <div class="price">Amount</div>
+</div>
 <div class="item">
   <div class="name">{{ idx }}) {{ item.name }}</div>
   <div>{{ item.quantity }}</div>
-  <div class="price">{{ item.price }}</div>
+  <div>{{ item.tax }}%</div>
+  <div>{{ item.discount }}%</div>
+  <div class="price">{{ item.price?.toFixed(2) }}</div>
+  <div class="price">{{ item.totalPrice?.toFixed(2) }}</div>
 </div>

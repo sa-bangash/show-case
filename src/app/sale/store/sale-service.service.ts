@@ -24,18 +24,24 @@ export namespace SaleServiceService {
       name: 'Coffee',
       price: 150,
       imgUrl: './assets/images/image-2.png',
+      discount: 4,
+      tax: 2,
     },
     {
       id: 2,
       name: 'Bread',
       price: 115,
       imgUrl: './assets/images/image-5.png',
+      tax: 5,
+      discount: 2,
     },
     {
       id: 3,
       name: 'Juice',
       price: 315,
       imgUrl: './assets/images/image-4.png',
+      discount: 6,
+      tax: 2,
     },
   ];
 }

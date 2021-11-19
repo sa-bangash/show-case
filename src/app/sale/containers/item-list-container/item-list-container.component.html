@@ -5,7 +5,9 @@
     (onBuy)="addToCart($event)"
   ></app-item>
 </div>
-<div class="cart">
+<div class="cart" *ngIf="(cartItems$ | async).length">
   <app-cart [items]="cartItems$ | async" [total]="total$ | async"></app-cart>
-  <button type="button" (click)="onCheckoutClick()">Check out</button>
+  <button type="button" class="checkout-btn" (click)="onCheckoutClick()">
+    Check out
+  </button>
 </div>

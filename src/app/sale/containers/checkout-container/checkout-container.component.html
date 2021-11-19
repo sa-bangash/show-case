@@ -1,6 +1,8 @@
 <div class="cart">
   <app-cart [items]="cartItems$ | async" [total]="total$ | async"></app-cart>
   <div>
-    <button type="button" (click)="onConfirm()">Confirm</button>
+    <button type="button" class="confirm-btn" (click)="onConfirm()">
+      Confirm
+    </button>
   </div>
 </div>

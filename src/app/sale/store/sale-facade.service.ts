@@ -38,15 +38,17 @@ export class SaleFacadeService {
     const found = items.findIndex((i) => i.id === newItem.id);
     if (found > -1) {
       const item = items[found];
-      items[found] = {
+      items[found] = this.calculatePerItem({
         ...item,
         quantity: item.quantity + 1,
-      };
-    } else {
-      items.push({
-        ...newItem,
-        quantity: 1,
       });
+    } else {
+      items.push(
+        this.calculatePerItem({
+          ...newItem,
+          quantity: 1,
+        })
+      );
     }
     this.cartItemsSource.next(items);
   }
@@ -60,9 +62,18 @@ export class SaleFacadeService {
     this.destory$.complete();
   }
 
+  private calculatePerItem(cartItem: Cart): Cart {
+    const discountAmount = (cartItem.price / 100) * (cartItem.discount || 0);
+    const taxAmount = ((cartItem.price - discountAmount) / 100) * cartItem.tax;
+    const totalPrice = cartItem.price - discountAmount + taxAmount;
+    return {
+      ...cartItem,
+      totalPrice,
+    };
+  }
   private total(items: Cart[]) {
     return items.reduce((acc, item) => {
-      return (acc + item.price) * item.quantity;
+      return item.totalPrice * item.quantity + acc;
     }, 0);
   }
 }
